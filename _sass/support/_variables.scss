@@ -2,14 +2,14 @@
 
 // my-font
 @font-face {
-  font-family: "ProximaSoft";
+  font-family: ProximaSoft;
   src: url("../../assets/css/fonts/ProximaSoft-Medium.woff2");
   font-weight: normal;
   font-style: normal;
 }
 
 // prettier-ignore
-$body-font-family: "ProximaSoft", system-ui, -apple-system, blinkmacsystemfont, "Segoe UI",
+$body-font-family: ProximaSoft, system-ui, -apple-system, blinkmacsystemfont, "Segoe UI",
   roboto, "Helvetica Neue", arial, sans-serif !default;
 $mono-font-family: "Consolas", "SFMono-Regular", menlo, consolas, monospace !default;
 $root-font-size: 16px !default; // DEPRECATED: previously base font-size for rems
