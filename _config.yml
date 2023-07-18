@@ -13,14 +13,33 @@
 # you will see them accessed via {{ site.title }}, {{ site.github_repo }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: 爱梦无药
-description: Dreamless drug is 101010.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://just-the-docs.com" # the base hostname & protocol for your site, e.g. http://example.com
-repository: just-the-docs/just-the-docs # for github-metadata
+title: Dreamless Drugs
+description: Dreamless drugs are 101010.
+baseurl: "" # the subpath of your site, e.g. /blog; {{ site.baseurl }}/posts/my-post 会被渲染为 /blog/posts/my-post
+url: "https://dreamlessdrugs.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+repository: dreamlessdrugs/dreamlessdrugs.github.io # for github-metadata
+favicon_ico: "/assets/images/favicon_2.ico"
 
+# Jekyll 会根据页面的目录结构和文件名来生成 URL
 permalink: pretty
 
+# collections
+collections:
+  tutorials:
+    output: true
+    permalink: "/tutorials"
+  silhouettes:
+    output: true
+    permalink: "/silhouettes"
+
+just_the_docs:
+  collections:
+    tutorials:
+      name: Tutorials
+    silhouettes:
+      name: Silhouettes
+
+# 用于指定在构建过程中要排除的文件或目录，这些文件和目录不会被包含在生成的网站中，也不会被复制到 _site 目录下
 exclude:
  # from https://github.com/jekyll/jekyll/blob/master/lib/site_template/_config.yml:
    - .sass-cache/
@@ -57,12 +76,14 @@ exclude:
 search_enabled: true
 search:
   # Split pages into sections that can be searched individually
-  # Supports 1 - 6, default: 2
+  # Supports 1 - 6, default: 2 使用二级标题作为节
   heading_level: 2
   # Maximum amount of previews per search result
+  # 在预览中右侧显示的最大搜索结果数
   # Default: 3
-  previews: 2
+  previews: 3
   # Maximum amount of words to display before a matched word in the preview
+  # 在预览中显示匹配词之前的最大单词数，例如设置为3搜索that显示a blue lion that，设置为5则显示He is a blue lion that
   # Default: 5
   preview_words_before: 3
   # Maximum amount of words to display after a matched word in the preview
@@ -73,9 +94,11 @@ search:
   # Example: enable support for hyphenated search words
   tokenizer_separator: /[\s/]+/
   # Display the relative url in search results
+  # 在搜索结果中显示相对 URL
   # Supports true (default) or false
   rel_url: true
   # Enable or disable the search button that appears in the bottom right corner of every page
+  # 页面右下角会显示一个搜索的图标
   # Supports true or false (default)
   button: false
 
@@ -96,25 +119,28 @@ mermaid:
   # path: "/assets/js/mermaid.min.js"
   # Note: copy both `mermaid.esm.min.mjs` (v10+) or `mermaid.min.js` (<v10) and the associated `.map` file from the specified version of `mermaid/dist` to `/assets/js/`.
 
-# Enable or disable heading anchors
+# Enable or disable heading anchors(启用标题锚点链接，允许用户链接到页面上的特定标题(h1-h6))
 heading_anchors: true
 
-# Aux links for the upper right navigation
+# Auxiliary links for the upper right navigation（右上角的导航链接）
 aux_links:
-  "Just the Docs on GitHub":
-    - "//github.com/just-the-docs/just-the-docs"
+  "Uni-CYPred Homepage":
+    - "//47.115.205.248:8080"
 
 # Makes Aux links open in a new tab. Default is false
-aux_links_new_tab: false
+aux_links_new_tab: true
 
 # Sort order for navigation links
 # nav_sort: case_insensitive # default, equivalent to nil
+# 导航链接将以区分大小写的方式进行排序
 nav_sort: case_sensitive # Capital letters sorted before lowercase
 
 # External navigation links
+# 导航栏位于最后的外部链接（带图标）
 nav_external_links:
-  - title: Just the Docs on GitHub
-    url: https://github.com/just-the-docs/just-the-docs
+  - title: Uni-CYPred
+    url: http://47.115.205.248:8080
+    hide_icon: false
 
 # Footer content
 # appears at the bottom of every page's main content
@@ -123,7 +149,9 @@ nav_external_links:
 back_to_top: true
 back_to_top_text: "Back to top"
 
-footer_content: "Copyright &copy; 2017-2020 Patrick Marsceill. Distributed by an <a href=\"https://github.com/just-the-docs/just-the-docs/tree/main/LICENSE.txt\">MIT license.</a> <a href=\"https://www.netlify.com/\">This site is powered by Netlify.</a>"
+footer_content: "Powered by <a href=\"https://just-the-docs.com\" target=\"_blank\" rel=\"noopener noreferrer\">Just the Docs</a>,
+<a href=\"https://jekyllrb.com\" target=\"_blank\" rel=\"noopener noreferrer\">Jekyll</a> and
+<a href=\"https://pages.github.com\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub Pages</a>."
 
 # Footer last edited timestamp
 last_edit_timestamp: true # show or hide edit time - page must have `last_modified_date` defined in the frontmatter
@@ -132,7 +160,7 @@ last_edit_time_format: "%b %e %Y at %I:%M %p" # uses ruby's time format: https:/
 
 
 # Footer "Edit this page on GitHub" link text
-gh_edit_link: true # show or hide edit this page link
+gh_edit_link: false # show or hide edit this page link
 gh_edit_link_text: "Edit this page on GitHub"
 gh_edit_repository: "https://github.com/just-the-docs/just-the-docs" # the github URL for your repo
 gh_edit_branch: "main" # the branch that your docs is served from
@@ -142,6 +170,7 @@ gh_edit_view_mode: "tree" # "tree" or "edit" if you want the user to jump into t
 # Color scheme currently only supports "dark", "light"/nil (default), or a custom scheme that you define
 color_scheme: nil
 
+# callouts settings
 callouts_level: quiet # or loud
 callouts:
   highlight:
@@ -158,6 +187,7 @@ callouts:
   warning:
     title: Warning
     color: red
+callouts_opacity: 0.2
 
 # Google Analytics Tracking (optional)
 # Supports a CSV of tracking ID strings (eg. "UA-1234567-89,G-1AB234CDE5")
@@ -169,6 +199,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-github-metadata
 
+# 开启代码块的行号显示
 kramdown:
   syntax_highlighter_opts:
     block:
@@ -181,5 +212,6 @@ compress_html:
   startings: []
   blanklines: false
   profile: false
+  # turn off HTML compression
   # ignore:
   #   envs: all

@@ -1,6 +1,6 @@
 @mixin fs-1 {
   font-size: $font-size-1 !important;
-
+  // Media query mixin 用于媒体查询，如果视口宽度为 sm（small） 则 font-size 使用额外定义的
   @include mq(sm) {
     font-size: $font-size-1-sm !important;
   }

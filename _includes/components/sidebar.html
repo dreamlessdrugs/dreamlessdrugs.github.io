@@ -1,10 +1,13 @@
 <div class="side-bar">
+  <!-- title模块 -->
   <div class="site-header" role="banner">
     <a href="{{ '/' | relative_url }}" class="site-title lh-tight">{% include title.html %}</a>
     <button id="menu-button" class="site-button btn-reset" aria-label="Toggle menu" aria-pressed="false">
       <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
-    </a>
+    </button>
   </div>
+
+  <!-- 导航栏模块 -->
   <nav aria-label="Main" id="site-nav" class="site-nav">
     {% assign pages_top_size = site.html_pages
           | where_exp:"item", "item.title != nil"
@@ -14,11 +17,13 @@
     {% if pages_top_size > 0 %}
       {% include nav.html pages=site.html_pages key=nil %}
     {% endif %}
+
+    <!-- 导航栏外部链接模块 -->
     {%- if site.nav_external_links -%}
       <ul class="nav-list">
         {%- for node in site.nav_external_links -%}
           <li class="nav-list-item external">
-            <a href="{{ node.url | absolute_url }}" class="nav-list-link external">
+            <a href="{{ node.url | absolute_url }}" class="nav-list-link external" target="_blank" rel="noopener noreferrer">
               {{ node.title }}
               {% unless node.hide_icon %}<svg viewBox="0 0 24 24" aria-labelledby="svg-external-link-title"><use xlink:href="#svg-external-link"></use></svg>{% endunless %}
             </a>
@@ -26,6 +31,7 @@
         {%- endfor -%}
       </ul>
     {%- endif -%}
+
     {% if site.just_the_docs.collections %}
       {% assign collections_size = site.just_the_docs.collections | size %}
       {% for collection_entry in site.just_the_docs.collections %}
@@ -58,6 +64,7 @@
     {% endif %}
   </nav>
 
+  <!-- 导航栏footer模块 -->
   {% capture nav_footer_custom %}
     {%- include nav_footer_custom.html -%}
   {% endcapture %}
@@ -65,7 +72,7 @@
     {{ nav_footer_custom }}
   {% else %}
     <footer class="site-footer">
-      This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+      Sorry, we don't sell love here. May you find peace in dreamless drugs.
     </footer>
   {% endif %}
 </div>
