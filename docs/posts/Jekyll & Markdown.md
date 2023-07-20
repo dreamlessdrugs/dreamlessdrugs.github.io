@@ -100,7 +100,7 @@ Jekyll会自动为md生成HTML元素
 [text](text_url)
 text_url的形式:
 https://www.openai.com
-{% link docs/posts/test.md %}#heading
+{% link docs/posts/2023-7-14-test.md %}#heading
 
 或者在文本之后定义
 [text]
