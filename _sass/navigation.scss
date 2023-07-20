@@ -136,8 +136,9 @@
   font-weight: 600;
   text-align: start;
   text-transform: uppercase;
+  letter-spacing: 0.03rem;
   border-bottom: $border $border-color;
-  @include fs-2;
+  @include fs-3;
 
   @include mq(md) {
     padding: $sp-2 $gutter-spacing;
@@ -175,7 +176,7 @@
 .aux-nav {
   height: 100%;
   overflow-x: auto;
-  @include fs-2;
+  @include fs-3;
 
   .aux-nav-list {
     display: flex;

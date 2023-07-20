@@ -8,6 +8,8 @@ layout: table_wrappers
 <head>
 <!-- 优化自定义字体加载（刷新页面会闪烁）问题（Flash of Unstyled Text），优先使用woff2 -->
   <link rel="preload" href="{{ site.baseurl }}/assets/css/fonts/ProximaSoft-Medium.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 </head>
 {% include head.html %}
 <body>
@@ -31,6 +33,21 @@ layout: table_wrappers
             {% include components/children_nav.html %}
           {% endif %}
         </main>
+        {% if site.github.repository_url %}
+        <div id="gitalk-container"></div>
+        <script>
+          var gitalk = new Gitalk({
+            clientID: '13fe267844585bfc1fb6',
+            clientSecret: '0726d43fdedd84083fa2f3af7446d8ffa7b3d5f3',
+            repo: '{{ site.github.repository_name }}',
+            owner: '{{ site.github.owner_name }}',
+            admin: ['dreamlessdrugs'],
+            id: '{{ page.path }}',      // Ensure uniqueness and length less than 50
+            distractionFreeMode: false  // Facebook-like distraction free mode
+          })
+          gitalk.render('gitalk-container')
+        </script>
+        {% endif %}
         {% include components/footer.html %}
       </div>
     </div>
