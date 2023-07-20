@@ -706,9 +706,11 @@ _includes/components/mermaid.html
 
 网站内部link格式
 
+{% raw %}
 ```markdown
 [Configuration]({% link docs/customization.md %}#override-includes)
 ```
+{% endraw %}
 
 标题写法
 
