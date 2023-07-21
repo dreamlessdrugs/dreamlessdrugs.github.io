@@ -3,10 +3,10 @@ layout: default
 title: Python Tutorials
 nav_order: 1
 has_children: true
-permalink: tutorials/python_tutorials
+permalink: tutorials/python-tutorials
 ---
 
 # Python Tutorials
 
-{: .no_toc }
+{: .no_toc}
 

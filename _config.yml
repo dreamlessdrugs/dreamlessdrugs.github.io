@@ -21,16 +21,17 @@ repository: dreamlessdrugs/dreamlessdrugs.github.io # for github-metadata
 favicon_ico: "/assets/images/favicon_2.ico"
 
 # Jekyll 会根据页面的目录结构和文件名来生成 URL
-permalink: pretty
+#permalink: pretty
+permalink: "/:categories/:title/"
 
 # collections
 collections:
   tutorials:
     output: true
-    permalink: "/tutorials"
+    permalink: /:collection/:title
   silhouettes:
     output: true
-    permalink: "/silhouettes"
+    permalink: /:collection/:title
 
 just_the_docs:
   collections:
