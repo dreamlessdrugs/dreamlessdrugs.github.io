@@ -3,7 +3,7 @@ layout: default
 title: Jekyll & Markdown
 parent: Posts
 nav_order: 2
-last_modified_date: 2023-07-15T1:15
+last_modified_date: 2023-07-15T1:00
 ---
 
 # Jekyll & Markdown
