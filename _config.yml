@@ -21,8 +21,7 @@ repository: dreamlessdrugs/dreamlessdrugs.github.io # for github-metadata
 favicon_ico: "/assets/images/favicon_2.ico"
 
 # Jekyll 会根据页面的目录结构和文件名来生成 URL
-#permalink: pretty
-permalink: "/:categories/:title/"
+permalink: pretty
 
 # collections
 collections:
@@ -101,7 +100,7 @@ search:
   # Enable or disable the search button that appears in the bottom right corner of every page
   # 页面右下角会显示一个搜索的图标
   # Supports true or false (default)
-  button: false
+  button: true
 
 # For copy button on code
 enable_copy_code_button: true
@@ -184,10 +183,13 @@ callouts:
     color: green
   note:
     title: Note
-    color: purple
+    color: purpl
   warning:
     title: Warning
     color: red
+  note-1:
+    title: Note
+    color: pink
 callouts_opacity: 0.2
 
 # Google Analytics Tracking (optional)

@@ -146,7 +146,7 @@ Markdowm支持在内容中直接使用HTML标签
 ```
 <details open markdown="block"> # <details> 标签用来创建一个可折叠的内容面板, open 表示面板默认处于展开状态, markdown="block"使得 Jekyll 在 <details> 标签内解析 Markdown 语法
 <summary> # <summary> 标签定义了面板的标题, 此处标题为Table of contents
-	Table of contents
+Table of contents
 </summary>
 {: .text-delta} # 为标题添加类
 - TOC # 创建无序列表，为标题自动生成目录
@@ -158,7 +158,13 @@ Markdowm支持在内容中直接使用HTML标签
 # toc_levels="2..4" 是一个选项表示自动生成的目录只包含二到四级标题
 ```
 
+shift+Tab自动对齐
 
+shift+Enter 换一行
+
+Ctrl+/ 切换到markdown源代码
+
+在 HTML 中，Tab 字符的默认宽度通常是 8 个空格。在base.scss中修改code的tab-size为4，即可使typora编辑的代码块的tab正常显示为4个空格
 
 
 
@@ -362,7 +368,7 @@ $mono-font-family: "SFMono-Regular", menlo, consolas, monospace !default;
 ```scss
 utilities/_typography.scss
 font-size: .fs-1 - .fs-10
-font-weight: .fw-300/400/500/700
+font-weight: .fw-300 - 800
 // line-height: .lh-0, .lh-default: 1.4, .lh-tight: 1.25, $content-line-height: 1.6
 letter-spacing: .ls-5, .ls-10, .ls-0
 大写：.text-uppercase 
@@ -753,3 +759,27 @@ git commit -m "Initial commit"
 git push -u origin main
 ```
 
+支持中文搜索功能
+
+从https://github.com/MihaiValentin/lunr-languages中下载js文件，然后在head.html 中添加
+
+```html
+<script src="{{ '/assets/js/vendor/lunr.stemmer.support.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/vendor/lunr.zh.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/vendor/lunr.multi.js' | relative_url }}"></script>
+```
+
+然后在 `asset/js/just-the-docs.js` 的 initSearch() 函数中的lunr.js 的初始化模块添加
+
+```javascript
+var index = lunr(function(){
+  this.use(lunr.multiLanguage('en', 'zh')); // add
+  this.ref('id');
+  this.field('title', { boost: 200 });
+  this.field('content', { boost: 2 });
+  // ... rest of the code
+});
+```
+
+**使用 `<span id="xxx"></span>` 标签创建页内链接。**
+**使用 `<span class="xxx"></span>` 标签添加自定义样式。**

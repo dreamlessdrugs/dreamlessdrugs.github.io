@@ -72,6 +72,7 @@ a:not([class]) {
 
 code {
   @include fs-3;
+  tab-size: 4;
 
   font-family: $mono-font-family;
 
