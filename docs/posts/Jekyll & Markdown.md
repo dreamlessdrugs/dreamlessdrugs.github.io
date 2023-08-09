@@ -1,3 +1,12 @@
+---
+layout: default
+title: A
+parent: Posts
+nav_order: 100
+last_modified_date: 2023-07-14T23:00
+nav_exclude: true
+---
+
 ## Jekyll & Markdown
 
 标题：
