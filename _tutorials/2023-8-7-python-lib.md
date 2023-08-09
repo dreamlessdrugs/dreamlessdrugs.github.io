@@ -1,13 +1,12 @@
 ---
 layout: default
-title:  Python Libraries
+title: Python Libraries
 parent: Python Tutorials
 nav_order: 2
 last_modified_date: 2023-08-08T18:00
 ---
 
 # Python Libraries
-
 {: .no_toc }
 
 ## Table of contents
